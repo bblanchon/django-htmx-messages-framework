@@ -1,9 +1,10 @@
 import random
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
-
+from django.http.response import HttpResponse
 
 def home(request):
+    messages.info(request, "Hello from Home view!")
     return render(request, "home.html")
 
 
@@ -18,4 +19,6 @@ SAMPLE_MESSAGES = [
 
 def message(request):
     messages.add_message(request, *random.choice(SAMPLE_MESSAGES))
-    return redirect("/")
+    return HttpResponse(status=204, headers={
+        'HX-Trigger': 'foo',
+    })

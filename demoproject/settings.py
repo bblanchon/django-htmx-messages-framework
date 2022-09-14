@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "demoapp",
+    "htmx_messages",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "htmx_messages.middleware.HtmxMessagesMiddleware",
 ]
 
 ROOT_URLCONF = "demoproject.urls"

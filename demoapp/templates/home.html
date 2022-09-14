@@ -13,33 +13,16 @@
         <h1>Django+HTMX</h1>
         <p class="lead">Integration with the messages framework</p>
         <p>
-          <a class="btn btn-primary" href="/message">Emit message</a>
+          <button class="btn btn-primary" hx-get="/message">Emit message</button>
         </p>
         <p>
-          Click on the button above to trigger a <code>hx-get</code> that includes a message.
-        </p>
-        <p class="mb-0">
-          This message is sent to the <i>messages</i> framework as in a regular Django project, then it's converted to a `HX-Trigger` header in our custom middleware.
+          Click on the button above to show a new message.
         </p>
       </div>
     </div>
-    <div class="toast-container position-fixed top-0 end-0 p-3">
-      {% for message in messages %}
-      <div class="toast align-items-center border-0 {{ message.tags }}" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-          <div class="toast-body">{{ message.message }}</div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
+    {% include "toasts.html" %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script>
-      const toastElements =  document.getElementsByClassName('toast', { delay: 2000 })
-      for (const toastElement of toastElements) {
-        const toast = new bootstrap.Toast(toastElement)
-        toast.show()
-      }
-    </script>
+    <script src="https://unpkg.com/htmx.org@1.8.0"></script>
+    <script src="{% static 'toasts.js' %}"></script>
   </body>
 </html>
