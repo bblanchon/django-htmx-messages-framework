@@ -20,4 +20,14 @@
   htmx.on("messages", (e) => {
     e.detail.value.forEach(createToast)
   })
+
+  // Get the toast that are already on the page, except the template
+  const toastElements = document.querySelectorAll(
+    ".toast:not([data-toast-template])"
+  )
+  // Then show all these toasts
+  for (const element of toastElements) {
+    const toast = new bootstrap.Toast(element, { delay: 2000 })
+    toast.show()
+  }
 })()
