@@ -1,7 +1,16 @@
 Django+HTMX: integration with the messages framework
 ===
 
-This repository demonstrates how to use Django's messages framework with HTMX.
+This repository demonstrates how to use [Django's messages framework](https://docs.djangoproject.com/en/4.1/ref/contrib/messages/) with [HTMX](https://htmx.org/).
+
+<p align="center">
+  <a href="https://youtu.be/I5_g7XYyemQ" target="_blank">
+    <img alt="Django+HTMX: integration with the messages framework" src="django-htmx-messsages-framework.gif">
+  </a>
+</p>
+
+:tv: **[See the tutorial on YouTube](https://youtu.be/I5_g7XYyemQ)** :tv:
+
 
 ## How to run the demo?
 
@@ -16,8 +25,8 @@ pipenv run server
 
 Here are the two important pieces of this puzzle:
 
-1. the [HtmxMessageMiddleware](/htmx_messages/middleware.py) that takes the messages and puts them in the `HX-Trigger` header
-2. the [toast.js](/htmx_messages/static/toasts.js) that listens to the `messages` event and show the messages as toasts.
+1. [HtmxMessageMiddleware](/htmx_messages/middleware.py) takes the messages and puts them in the `HX-Trigger` header
+2. [toast.js](/htmx_messages/static/toasts.js) listens to the `messages` event and shows the messages as toasts.
 
 ## How to use this in your project?
 
