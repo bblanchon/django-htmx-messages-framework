@@ -5,7 +5,7 @@ This repository demonstrates how to use [Django's messages framework](https://do
 
 <p align="center">
   <a href="https://youtu.be/I5_g7XYyemQ" target="_blank">
-    <img alt="Django+HTMX: integration with the messages framework" src="django-htmx-messsages-framework.gif">
+    <img alt="Django+HTMX: integration with the messages framework" src="django-htmx-messages-framework.gif">
   </a>
 </p>
 
