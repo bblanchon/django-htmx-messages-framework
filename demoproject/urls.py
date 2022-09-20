@@ -20,4 +20,5 @@ from demoapp import views
 
 urlpatterns = [
     path("", views.home),
+    path("message", views.message),
 ]
