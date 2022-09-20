@@ -11,6 +11,8 @@ This repository demonstrates how to use [Django's messages framework](https://do
 
 :tv: **[See the tutorial on YouTube](https://youtu.be/I5_g7XYyemQ)** :tv:
 
+:newspaper: [Read the article on my blog](https://blog.benoitblanchon.fr/django-htmx-messages-framework/) :newspaper: 
+
 
 ## How to run the demo?
 
