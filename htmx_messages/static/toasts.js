@@ -1,4 +1,6 @@
 ;(function () {
+  const toastOptions = { delay: 2000 }
+
   function createToast(message) {
     // Clone the template
     const element = htmx.find("[data-toast-template]").cloneNode(true)
@@ -16,7 +18,7 @@
     htmx.find("[data-toast-container]").appendChild(element)
 
     // Show the toast using Bootstrap's API
-    const toast = new bootstrap.Toast(element, { delay: 2000 })
+    const toast = new bootstrap.Toast(element, toastOptions)
     toast.show()
   }
 
@@ -26,7 +28,7 @@
 
   // Show all existsing toasts, except the template
   htmx.findAll(".toast:not([data-toast-template])").forEach((element) => {
-    const toast = new bootstrap.Toast(element, { delay: 2000 })
+    const toast = new bootstrap.Toast(element, toastOptions)
     toast.show()
   })
 })()
