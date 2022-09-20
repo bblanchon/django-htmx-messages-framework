@@ -1,33 +1,32 @@
 ;(function () {
-  const toastTemplate = document.querySelector("[data-toast-template]")
-  const toastContainer = document.querySelector("[data-toast-container]")
-
   function createToast(message) {
     // Clone the template
-    const element = toastTemplate.cloneNode(true)
-    delete element.dataset.toastTemplate
-    toastContainer.appendChild(element)
+    const element = htmx.find("[data-toast-template]").cloneNode(true)
 
-    // Set the CSS class and the text according to the message
+    // Remove the data-toast-template attribute
+    delete element.dataset.toastTemplate
+
+    // Set the CSS class
     element.className += " " + message.tags
-    element.querySelector("[data-toast-body]").innerText = message.message
+
+    // Set the text
+    htmx.find(element, "[data-toast-body]").innerText = message.message
+
+    // Add the new element to the container
+    htmx.find("[data-toast-container]").appendChild(element)
 
     // Show the toast using Bootstrap's API
     const toast = new bootstrap.Toast(element, { delay: 2000 })
     toast.show()
   }
 
-  htmx.on("messages", (e) => {
-    e.detail.value.forEach(createToast)
+  htmx.on("messages", (event) => {
+    event.detail.value.forEach(createToast)
   })
 
-  // Get the toast that are already on the page, except the template
-  const toastElements = document.querySelectorAll(
-    ".toast:not([data-toast-template])"
-  )
-  // Then show all these toasts
-  for (const element of toastElements) {
+  // Show all existsing toasts, except the template
+  htmx.findAll(".toast:not([data-toast-template])").forEach((element) => {
     const toast = new bootstrap.Toast(element, { delay: 2000 })
     toast.show()
-  }
+  })
 })()
