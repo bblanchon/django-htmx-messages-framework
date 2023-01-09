@@ -1,6 +1,7 @@
 import json
-from django.utils.deprecation import MiddlewareMixin
 from django.contrib.messages import get_messages
+from django.http import HttpRequest, HttpResponse
+from django.utils.deprecation import MiddlewareMixin
 
 
 class HtmxMessageMiddleware(MiddlewareMixin):
@@ -8,7 +9,7 @@ class HtmxMessageMiddleware(MiddlewareMixin):
     Middleware that moves messages into the HX-Trigger header when request is made with HTMX
     """
 
-    def process_response(self, request, response):
+    def process_response(self, request: HttpRequest, response: HttpResponse) -> HttpResponse:
 
         # The HX-Request header indicates that the request was made with HTMX
         if "HX-Request" not in request.headers:
