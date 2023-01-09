@@ -15,6 +15,10 @@ class HtmxMessageMiddleware(MiddlewareMixin):
         if "HX-Request" not in request.headers:
             return response
 
+        # Ignore redirections because HTMX cannot read the headers
+        if 300 <= response.status_code < 400:
+            return response
+
         # Extract the messages
         messages = [
             {"message": message.message, "tags": message.tags}
