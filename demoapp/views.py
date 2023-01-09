@@ -19,4 +19,4 @@ SAMPLE_MESSAGES = [
 
 def message(request):
     messages.add_message(request, *random.choice(SAMPLE_MESSAGES))
-    return HttpResponse(status=204)
+    return HttpResponse(status=200)

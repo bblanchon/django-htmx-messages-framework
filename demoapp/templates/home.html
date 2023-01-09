@@ -13,13 +13,13 @@
         <h1>Django+HTMX</h1>
         <p class="lead">Integration with the messages framework</p>
         <p>
-          <button class="btn btn-primary" hx-get="/message">Emit message</button>
+          <button class="btn btn-primary" hx-get="/message" hx-swap="none">Emit message</button>
         </p>
         <p>
           Click on the button above to trigger a <code>hx-get</code> that includes a message.
         </p>
         <p class="mb-0">
-          This message is sent to the <i>messages</i> framework as in a regular Django project, then it's converted to a <code>HX-Trigger</code> header in a custom middleware.
+          This message is sent to the <i>messages</i> framework as in a regular Django project, then it's appended to the response in a custom middleware.
         </p>
       </div>
     </div>
