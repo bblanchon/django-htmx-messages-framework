@@ -15,8 +15,12 @@ class HtmxMessageMiddleware(MiddlewareMixin):
         if "HX-Request" not in request.headers:
             return response
 
-        # Ignore redirections because HTMX cannot read the headers
+        # Ignore HTTP redirections because HTMX cannot read the body
         if 300 <= response.status_code < 400:
+            return response
+
+        # Ignore client-side redirection because HTMX drops OOB swaps
+        if "HX-Redirect" in request.headers:
             return response
 
         # Extract the messages
