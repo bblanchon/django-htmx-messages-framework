@@ -20,7 +20,7 @@ class HtmxMessageMiddleware(MiddlewareMixin):
             return response
 
         # Ignore client-side redirection because HTMX drops OOB swaps
-        if "HX-Redirect" in request.headers:
+        if "HX-Redirect" in response.headers:
             return response
 
         # Extract the messages
