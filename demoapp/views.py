@@ -1,7 +1,6 @@
 import random
 from django.shortcuts import render
 from django.contrib import messages
-from django.http.response import HttpResponse
 
 
 def home(request):
@@ -19,4 +18,4 @@ SAMPLE_MESSAGES = [
 
 def message(request):
     messages.add_message(request, *random.choice(SAMPLE_MESSAGES))
-    return HttpResponse(status=200)
+    return render(request, "lorem.html")
