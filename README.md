@@ -33,7 +33,7 @@ Here are the two important pieces of this puzzle:
 
 ## How to use this in your project?
 
-1. Run `pip install git+https://github.com/bblanchon/django-htmx-messages-framework.git@oob` to install the package
+1. Run `pip install git+https://github.com/bblanchon/django-htmx-messages-framework.git` to install the package
 2. Add `htmx_messages` to the `INSTALLED_APPS` setting
 3. Add `htmx_messages.middleware.HtmxMessageMiddleware` to the `MIDDLEWARE`settings
 
