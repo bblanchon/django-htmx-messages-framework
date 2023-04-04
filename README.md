@@ -35,9 +35,8 @@ Here are the two important pieces of this puzzle:
 
 1. Run `pip install git+https://github.com/bblanchon/django-htmx-messages-framework.git` to install the package
 2. Add `htmx_messages` to the `INSTALLED_APPS` setting
-3. Add `htmx_messages.middleware.HtmxMessageMiddleware` to the `MIDDLEWARE`settings
-
-4. Add `{% include 'toast.html' %}` in near the end of `<body>`
+3. Add `htmx_messages.middleware.HtmxMessageMiddleware` to the `MIDDLEWARE` settings
+4. Add `{% include 'toast.html' %}` near the end of `<body>`
 5. Add `<script src="{% static 'toast.js' %}"></script>` as the last element of `<body>`
 
 The files `toast.html` and `toast.js` are tailored for Bootstrap 5; **you'll have to modify them** to suit your needs.
