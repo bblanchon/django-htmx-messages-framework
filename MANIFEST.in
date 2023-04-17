@@ -1,0 +1,2 @@
+include htmx_messages/static/*
+include htmx_messages/templates/*

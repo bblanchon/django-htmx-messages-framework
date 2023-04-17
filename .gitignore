@@ -2,3 +2,5 @@
 /db.sqlite3
 *.pyc
 .idea
+build
+django_htmx_messages_framework.egg-info
