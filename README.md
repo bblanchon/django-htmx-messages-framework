@@ -31,9 +31,10 @@ A custom middleware pulls the messages and appends the toasts' HTML to the respo
 
 ## How to use this in your project?
 
-1. Copy the `htmx_messages/` folder into your project
-2. Add `htmx_messages` in the `INSTALLED_APPS` setting
-3. Add `{% include 'toasts.html' %}` in near the end of `<body>`
-4. Add `<script src="{% static 'toast.js' %}"></script>` as the last element of `<body>`
+1. Run `pip install git+https://github.com/bblanchon/django-htmx-messages-framework.git@oob` to install the package
+2. Add `htmx_messages` to the `INSTALLED_APPS` setting
+3. Add `htmx_messages.middleware.HtmxMessageMiddleware` to the `MIDDLEWARE` settings
+4. Add `{% include 'toasts.html' %}` near the end of `<body>`
+5. Add `<script src="{% static 'toasts.js' %}"></script>` as the last element of `<body>`
 
-The files `toasts.html` and `toast.js` are tailored for Bootstrap 5; **you'll have to modify them** to suit your needs.
+The files `toasts.html` and `toasts.js` are tailored for Bootstrap 5; **you'll have to modify them** to suit your needs.
